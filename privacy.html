@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixflake プライバシーポリシー</title>
+<style>
+  :root {
+    --base: #F7F8FA;
+    --primary: #3F7CAC;
+    --accent: #1F3A5F;
+    --text-primary: #1B2330;
+    --text-secondary: #5C6675;
+    --border: #E2E5EB;
+    --surface: #FFFFFF;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Segoe UI", sans-serif;
+    background: var(--base);
+    color: var(--text-primary);
+    line-height: 1.75;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 32px; }
+  h1 { font-size: 26px; margin: 0 0 8px; color: var(--accent); }
+  h2 { font-size: 19px; margin: 36px 0 12px; color: var(--accent); border-left: 4px solid var(--primary); padding-left: 12px; }
+  p, li { font-size: 15px; color: var(--text-primary); }
+  a { color: var(--primary); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .meta { color: var(--text-secondary); font-size: 13px; }
+  ul { padding-left: 20px; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0 20px;
+    background: var(--surface);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 14px;
+  }
+  th { background: var(--base); color: var(--accent); }
+  footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 13px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .en { margin-top: 40px; padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>プライバシーポリシー</h1>
+    <p class="meta">アプリ名：Pixflake ／ 最終更新日：2026年5月1日 ／ 提供者：yowl.dev</p>
+  </header>
+
+  <p>本プライバシーポリシーは、Pixflake（以下「本アプリ」）における利用者情報の取扱いについて説明するものです。</p>
+
+  <h2>1. 収集する情報</h2>
+  <p>本アプリは、利用者の個人情報を <strong>一切収集しません</strong>。</p>
+  <ul>
+    <li>アカウント登録はありません</li>
+    <li>サーバーへのデータ送信はありません</li>
+    <li>解析・計測ツール（Google Analytics、Firebase Analytics 等）は組み込んでいません</li>
+    <li>広告 SDK は組み込んでいません</li>
+    <li>クラッシュレポートの自動送信は行いません</li>
+    <li>写真の自動分類はすべて端末内（オンデバイス AI）で完結します</li>
+  </ul>
+
+  <h2>2. 端末内に保存される情報</h2>
+  <p>以下の情報は、利用者の iPhone 端末内にのみ保存されます。開発者を含む第三者に送信されることはありません。</p>
+  <ul>
+    <li>Photos ライブラリ内の各写真への参照識別子（PHAsset.localIdentifier）</li>
+    <li>各写真の撮影日時・寸法・スクリーンショット判別フラグなどのメタデータ</li>
+    <li>端末内 AI による分類結果（カテゴリ、信頼度）と OCR 抽出テキスト</li>
+    <li>整理セッションの状態（手動カテゴリ変更、Pixflake 内非表示フラグ等）</li>
+    <li>ユーザー設定（言語、削除挙動、自動分類 ON/OFF、カテゴリ表示名のリネーム）</li>
+  </ul>
+  <p>保存先：iOS の Documents ディレクトリ配下（SQLite データベース）。<strong>写真本体（画像データ）は本アプリのストレージに複製されず、Photos ライブラリ側にのみ存在します。</strong></p>
+
+  <h2>3. 端末権限の利用</h2>
+  <p>本アプリは、以下の権限のみを必要に応じて利用します。</p>
+  <table>
+    <thead>
+      <tr><th>権限</th><th>利用目的</th><th>必須</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>写真ライブラリ（読み取り）</td><td>ライブラリ内の写真を端末内 AI で分類し、整理を行うため</td><td>必須</td></tr>
+      <tr><td>写真ライブラリ（書き込み）</td><td>利用者が「iOS Photos のゴミ箱へ送る」設定を選んでいる場合、削除した写真を Photos のゴミ箱に送るため。デフォルト設定（Pixflake 内で非表示）では使用しません。</td><td>条件付き</td></tr>
+    </tbody>
+  </table>
+  <p>以下の権限は <strong>使用しません</strong>：</p>
+  <ul>
+    <li>位置情報（写真に埋め込まれた位置メタデータの読み取りも行いません）</li>
+    <li>カメラ</li>
+    <li>マイク</li>
+    <li>連絡先</li>
+    <li>カレンダー</li>
+    <li>Bluetooth</li>
+    <li>モーションセンサー</li>
+    <li>トラッキング（IDFA）</li>
+    <li>プッシュ通知</li>
+  </ul>
+
+  <h2>4. 写真本体への影響</h2>
+  <p>本アプリは Photos ライブラリの写真を <strong>読み取るだけ</strong>で、写真本体・アルバム・EXIF・撮影日時などのメタデータには一切書き込みません。Pixflake 内で「非表示」に設定した写真は、Pixflake のデータベース上にフラグが立つだけで、Photos ライブラリには影響しません。</p>
+  <p>例外として、利用者が設定で「iOS Photos のゴミ箱へ送る」を選んだ場合のみ、削除操作時に iOS 標準の削除処理（30 日復元可能なゴミ箱へ移動）を行います。この場合も iOS のシステム確認ダイアログを 1 回挟みます。</p>
+
+  <h2>5. iCloud バックアップ</h2>
+  <p>iOS 標準の iCloud バックアップが有効な場合、本アプリのデータ（Documents 配下の SQLite ファイル）は Apple の iCloud サーバーにバックアップされることがあります。これは iOS の標準動作であり、本アプリが独自に行う送信ではありません。iCloud に保存されたデータの取扱いについては、Apple のプライバシーポリシーに従います。</p>
+
+  <h2>6. 子どものプライバシー</h2>
+  <p>本アプリは、子どもから個人情報を意図的に収集することはありません。本アプリは年齢制限のあるコンテンツを扱いません。</p>
+
+  <h2>7. 自動分類の精度に関する注意事項</h2>
+  <p>本アプリの自動分類は、端末内 AI（Apple の Vision Framework）による推定結果であり、<strong>常に正確であるとは限りません</strong>。誤判定された写真は手動で正しいカテゴリへ移動できます。重要な写真の整理結果は、ご自身で確認の上ご利用ください。</p>
+
+  <h2>8. データの削除</h2>
+  <p>利用者は、以下の方法でアプリ内のデータを削除できます。</p>
+  <ul>
+    <li>個別写真の削除：写真の長押しメニュー、または整理画面の左スワイプから削除</li>
+    <li>非表示の解除：設定 →「非表示にした写真」から個別または一括で再表示</li>
+    <li>自動分類の全リセット：設定 → 自動分類 →「自動分類をリセット」</li>
+    <li>アプリのアンインストール：iOS 標準操作でアプリを削除すると、Pixflake が保持していた端末内データはすべて削除されます。Photos ライブラリの写真本体には影響しません。</li>
+  </ul>
+
+  <h2>9. 第三者への提供</h2>
+  <p>本アプリは利用者の情報を収集していないため、第三者に提供することもありません。</p>
+
+  <h2>10. ポリシーの変更</h2>
+  <p>本プライバシーポリシーは、必要に応じて改訂することがあります。改訂時は本ページの最終更新日を更新します。</p>
+
+  <h2>11. お問い合わせ</h2>
+  <div class="card">
+    <p><strong>メール：</strong><a href="mailto:yowl.dev@gmail.com">yowl.dev@gmail.com</a></p>
+    <p><strong>サポートページ：</strong><a href="./index.html">こちら</a></p>
+  </div>
+
+  <div class="en">
+    <strong>English Summary</strong><br>
+    Pixflake does not collect, transmit, or share any personal information. All photo classification runs on-device via Apple's Vision Framework, and all metadata is stored locally in the iOS Documents directory. The app reads your Photos library to classify images but never modifies the originals, EXIF, or albums. The app does not use any analytics, advertising, or tracking SDKs. Photo library write access is requested only when you opt in to "Move to iOS Photos trash" mode in settings; the default behavior hides photos within Pixflake only and never touches the Photos library. For details, refer to the Japanese text above. Contact: yowl.dev@gmail.com
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Pixflake</p>
+  </footer>
+</main>
+</body>
+</html>
