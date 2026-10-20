@@ -66,7 +66,7 @@
 <main>
   <header>
     <h1>プライバシーポリシー</h1>
-    <p class="meta">アプリ名：Pixflake ／ 最終更新日：2026年10月15日 ／ 提供者：yowl.dev</p>
+    <p class="meta">アプリ名：Pixflake ／ 最終更新日：2026年10月20日 ／ 提供者：yowl.dev</p>
   </header>
 
   <p>本プライバシーポリシーは、Pixflake（以下「本アプリ」）における利用者情報の取扱いについて説明するものです。</p>
@@ -91,7 +91,7 @@
     <li>整理セッションの状態（手動カテゴリ変更、Pixflake 内非表示フラグ等）</li>
     <li>ユーザー設定（言語、削除挙動、自動分類 ON/OFF、カテゴリ表示名のリネーム）</li>
   </ul>
-  <p>保存先：iOS の Documents ディレクトリ配下（SQLite データベース）。データベースには写真本体を保存しません。回転処理では端末内の一時ファイルを利用し、RAW／ProRAW の回転時はJPEGコピーを Photos ライブラリに保存します。コピー保存用の一時ファイルは処理後に削除します。</p>
+  <p>保存先：iOS の Documents ディレクトリ配下（SQLite データベース）。データベースには写真本体を保存しません。回転・トリミングでは端末内の一時ファイルを利用します。JPEGコピーを保存する場合、一時ファイルは処理後に削除します。</p>
 
   <h2>3. 端末権限の利用</h2>
   <p>本アプリは、以下の権限のみを必要に応じて利用します。</p>
@@ -101,7 +101,7 @@
     </thead>
     <tbody>
       <tr><td>写真ライブラリ（読み取り）</td><td>ライブラリ内の写真を端末内 AI で分類し、整理を行うため</td><td>必須</td></tr>
-      <tr><td>写真ライブラリ（書き込み）</td><td>利用者が操作した左90度回転の保存、RAW／ProRAW のJPEGコピー追加、および「iOS Photos のゴミ箱へ送る」設定での削除に使用します。自動分類や Pixflake 内での非表示には使用しません。</td><td>条件付き</td></tr>
+      <tr><td>写真ライブラリ（書き込み）</td><td>利用者が操作した回転・トリミングの保存、JPEGコピーの追加、および「iOS Photos のゴミ箱へ送る」設定での削除に使用します。自動分類や Pixflake 内での非表示には使用しません。</td><td>条件付き</td></tr>
     </tbody>
   </table>
   <p>以下の権限は <strong>使用しません</strong>：</p>
@@ -120,10 +120,11 @@
   <h2>4. 写真本体への影響</h2>
   <p>自動分類は Photos ライブラリの写真・アルバム・メタデータを変更しません。Pixflake 内で「非表示」に設定した写真は、Pixflake のデータベース上にフラグが立つだけで、Photos ライブラリには影響しません。</p>
   <p>利用者が拡大画面で左90度回転を操作した場合、通常の写真は元画像を保持したまま、Photos の元に戻せる編集として保存します。RAW／ProRAW は元写真を変更せず、回転したフル解像度のJPEGコピーを Photos ライブラリに追加します。</p>
+  <p>トリミングも通常の写真は元に戻せる編集として保存します。RAW／ProRAW と Live Photo は元写真を変更せず、切り取ったフル解像度のJPEGコピーを追加します。Live Photo の動画はコピーに含まれません。</p>
   <p>利用者が設定で「iOS Photos のゴミ箱へ送る」を選んだ場合のみ、削除操作時に iOS 標準の削除処理（30 日復元可能なゴミ箱へ移動）を行います。この場合も iOS のシステム確認ダイアログを 1 回挟みます。</p>
 
   <h2>5. iCloud の利用</h2>
-  <p>iCloud 上にのみある写真の表示・回転などでは、iOS が元画像をダウンロードすることがあります。Photos ライブラリに保存した編集やコピーは、iCloud Photos の設定に従って同期されます。</p>
+  <p>iCloud 上にのみある写真の表示・回転・トリミングなどでは、iOS が元画像をダウンロードすることがあります。Photos ライブラリに保存した編集やコピーは、iCloud Photos の設定に従って同期されます。</p>
   <p>iOS 標準の iCloud バックアップが有効な場合、本アプリのデータ（Documents 配下の SQLite ファイル）は Apple の iCloud サーバーにバックアップされることがあります。これは iOS の標準動作であり、本アプリが独自に行う送信ではありません。iCloud に保存されたデータの取扱いについては、Apple のプライバシーポリシーに従います。</p>
 
   <h2>6. 子どものプライバシー</h2>
@@ -138,7 +139,7 @@
     <li>個別写真の削除：写真の長押しメニュー、または整理画面の左スワイプから削除</li>
     <li>非表示の解除：設定 →「非表示にした写真」から個別または一括で再表示</li>
     <li>自動分類の全リセット：設定 → 自動分類 →「自動分類をリセット」</li>
-    <li>アプリのアンインストール：iOS 標準操作でアプリを削除すると、Pixflake が保持していた端末内データはすべて削除されます。Photos ライブラリに保存済みの回転編集・JPEGコピー・削除は、アンインストールしても元に戻りません。</li>
+    <li>アプリのアンインストール：iOS 標準操作でアプリを削除すると、Pixflake が保持していた端末内データはすべて削除されます。Photos ライブラリに保存済みの回転・トリミングの編集、JPEGコピー、削除は、アンインストールしても元に戻りません。</li>
   </ul>
 
   <h2>9. 第三者への提供</h2>
@@ -155,7 +156,7 @@
 
   <div class="en">
     <strong>English Summary</strong><br>
-    Pixflake does not collect personal information or send photos or classification results to the developer. Classification runs on-device using Apple's Vision Framework and does not modify your Photos library. Photo references, classification results, and settings are stored in a local database. At your request, regular photos can be rotated using reversible Photos edits; RAW / ProRAW originals remain unchanged and a rotated full-resolution JPEG copy is added, preserving the source capture date and location. Temporary files are used for rotation. Library write access is used for these saves and for deletions when you opt into "Move to iOS Photos trash" mode. The default deletion mode only hides photos within Pixflake. The app does not request access to your current location; it uses whether photos have location metadata for on-device classification. iOS may download iCloud originals and sync Photos changes according to your settings. No analytics, advertising, or tracking SDKs are used. Uninstalling removes app data but does not undo edits, copies, or deletions saved to Photos. For details, refer to the Japanese text above. Contact: yowl.dev@gmail.com
+    Pixflake does not collect personal information or send photos or classification results to the developer. Classification runs on-device using Apple's Vision Framework and does not modify your Photos library. Photo references, classification results, and settings are stored in a local database. At your request, regular photos can be rotated or cropped using reversible Photos edits; RAW / ProRAW originals remain unchanged and an edited full-resolution JPEG copy is added, preserving the source capture date and location. Cropping a Live Photo also creates a JPEG copy while keeping the original; the copy does not include the video. Temporary files are used for editing. Library write access is used for these saves and for deletions when you opt into "Move to iOS Photos trash" mode. The default deletion mode only hides photos within Pixflake. The app does not request access to your current location; it uses whether photos have location metadata for on-device classification. iOS may download iCloud originals and sync Photos changes according to your settings. No analytics, advertising, or tracking SDKs are used. Uninstalling removes app data but does not undo edits, copies, or deletions saved to Photos. For details, refer to the Japanese text above. Contact: yowl.dev@gmail.com
   </div>
 
   <footer>
